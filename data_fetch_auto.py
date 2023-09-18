@@ -14,6 +14,7 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 import ssl
 import sys
 import datetime
+import os
 
 #JINS MEME API 固有値
 token_url = 'https://apis.jins.com/meme/v1/oauth/token'
@@ -26,13 +27,13 @@ response_type = 'code'
 service_id = 'meme'
 
 #JINS MEME Developers サイトから取得して以下をセットしてください
-client_id = ''
-client_secret = ''
+client_id = os.environ['JINS_CLIENT_ID']
+client_secret = os.environ['JINS_CLIENT_SECRET']
 redirect_uri = 'https://localhost:5001' #ここで使用しているライブラリではhttpsが必須です
 
 #データ取得日付レンジ、0埋めしてください
-fetch_from = '2022-08-28'
-fetch_to = '2022-09-05'
+fetch_from = '2023-07-26'
+fetch_to = '2023-09-15'
 
 #localサーバーまわりの設定項目
 port = 5001 #redirect_uriのポートと一致させるのと、ローカル環境で同じポートでソフトウェアが動作していないことを確認してください。
